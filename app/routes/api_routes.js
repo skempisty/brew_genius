@@ -2,7 +2,7 @@ var express = require('express'),
     router = express.Router();
 
 // Require fishes controller
-var FishesCtrl = require('../controllers/fishes'),
+var BeerCtrl = require('../controllers/beer'),
     UsersCtrl  = require('../controllers/users');
 
 
@@ -24,10 +24,12 @@ router.delete('/users/:id',  UsersCtrl.tokenVerify, UsersCtrl.userDelete);
 //||||||||||||||||||||||||||--
 // FISHES CRUD SERVICES
 //||||||||||||||||||||||||||--
-router.get('/fishes/:id',    UsersCtrl.tokenVerify, FishesCtrl.fishShow);
-router.get('/fishes',        UsersCtrl.tokenVerify, FishesCtrl.fishIndex);
-router.post('/fishes',       UsersCtrl.tokenVerify, FishesCtrl.fishCreate);
-router.put('/fishes/:id',    UsersCtrl.tokenVerify, FishesCtrl.fishUpdate);
-router.delete('/fishes/:id', UsersCtrl.tokenVerify, FishesCtrl.fishDelete);
+router.get('/fishes/:id',    UsersCtrl.tokenVerify, BeerCtrl.fishShow);
+router.get('/fishes',        UsersCtrl.tokenVerify, BeerCtrl.fishIndex);
+router.post('/fishes',       UsersCtrl.tokenVerify, BeerCtrl.fishCreate);
+router.put('/fishes/:id',    UsersCtrl.tokenVerify, BeerCtrl.fishUpdate);
+router.delete('/fishes/:id', UsersCtrl.tokenVerify, BeerCtrl.fishDelete);
+router.post('/beerSearch', BeerCtrl.beerIndex);
+router.post('/beerShow', BeerCtrl.beerShow);
 
 module.exports = router;

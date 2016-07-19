@@ -23,7 +23,7 @@ var allowCrossDomain = function(req, res, next) {
 }
 
 // uncomment after placing your favicon in /img
-app.use(favicon(path.join(__dirname, 'public/assets/img', 'derry.ico')));
+app.use(favicon(path.join(__dirname, 'public/assets/img', 'beer_logo.png')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

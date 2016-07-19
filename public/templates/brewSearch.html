@@ -1,1 +1,25 @@
 <h1>Find Brews</h1>
+
+
+<input type="text" ng-model='vm.beerName'>
+<button ng-click='vm.searchBeer(vm.beerName)'>Beer Search Test</button>
+
+ <table class='highlight'>
+  <thead>
+    <tr>
+        <th data-field="id">Name</th>
+        <th data-field="name">Style</th>
+        <th data-field="price">ABV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat-start='beer in vm.beerArr' ng-click="beer.detail=!beer.detail">
+      <td>{{beer.name}}</td>
+      <td>{{beer.style.name || 'N/A'}}</td>
+      <td>{{beer.abv || 'N/A'}}</td>
+    </tr>
+    <tr class="animate-show" ng-repeat-end="" ng-show="beer.detail" style="background: #ffab00">
+      <td colspan="3"><img src="{{beer.labels.medium}}" alt="N/A"></td>
+    </tr>
+  </tbody>
+</table>

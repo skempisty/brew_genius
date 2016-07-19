@@ -8,14 +8,12 @@ var mongoose     = require('mongoose'),
 //||||||||||||||||||||||||||--
 var UserSchema   = new Schema({
   name:        { type: String, required: true },
-  phoneNumber: {
+  email: {
                  type: String,
                  required: true,
-                 index: { unique: true },
-                 minlength: 7,
-                 maxlength: 10
+                 index: { unique: true }
   },
-  password:    { type: String, required: true, select: false }
+  password:    { type: String, required: true }
 });
 
 // exclude password
@@ -46,7 +44,7 @@ UserSchema.pre('save', function(next) {
 // method to compare a given password with the database hash
 UserSchema.methods.comparePassword = function(password) {
   var user = this;
-
+console.log(user)
   return bcrypt.compareSync(password, user.password);
 };
 

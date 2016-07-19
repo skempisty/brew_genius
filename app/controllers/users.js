@@ -9,43 +9,40 @@ var User        = require('../models/user.js'),
 //||||||||||||||||||||||||||--
 var userAuth = function (req, res, next) {
   // find the user
-  User.findOne({
-      phoneNumber: req.body.phoneNumber
-    }).select('phoneNumber password name').exec(function(err, user) {
-
+  User.findOne({email: req.body.email}, function(err, user) {
+      // console.log(user);
       if (err) throw err;
 
-      // no user with that phone number was found
+      // no user with that email was found
       if (!user) {
         res.json({
           success: false,
-          message: 'Authentication failed. User not found.'
+          message: 'Authentication failed.'
         });
-      } else if (user) {
+      } else {
 
         // check if password matches
-        var validPassword = user.comparePassword(req.body.password);
-        if (!validPassword) {
+        if (!user.comparePassword(req.body.password)) {
           res.json({
             success: false,
-            message: 'Authentication failed. Wrong password.'
+            message: 'Authentication failed.'
           });
         } else {
 
           // if user is found and password is right
           // create a token
-          var token = jwt.sign({
-            phoneNumber: user.phoneNumber,
-            name:        user.name,
-            _id:         user._id
-          }, superSecret, {
+
+
+          var token = jwt.sign(user, superSecret, {
             expiresInMinutes: 43200 // expires in 30 days
           });
+
+console.log(token)
 
           // return the information including token as JSON
           res.json({
             success: true,
-            message: 'Enjoy your token!',
+            message: 'Login Successful!',
             token: token,
             user: user
           });
@@ -57,7 +54,7 @@ var userAuth = function (req, res, next) {
   };
 
 //||||||||||||||||||||||||||--
-// VERIFIY TOKEN
+// VERIFY TOKEN
 //||||||||||||||||||||||||||--
 var tokenVerify = function(req, res, next) {
   // do logging
@@ -79,8 +76,8 @@ var tokenVerify = function(req, res, next) {
       });
       } else {
         // if everything is good, save to request for use in other routes
-        req.decoded = decoded;
-
+        req.user = decoded._doc;
+console.log(req.user);
         next(); // make sure we go to the next routes and don't stop here
       }
     });
@@ -103,7 +100,7 @@ var tokenVerify = function(req, res, next) {
 var userCreate = function(req, res) {
     var user          = new User();   // create a new instance of the User model
     user.name         = req.body.name;  // set the users name (comes from the request)
-    user.phoneNumber  = req.body.phoneNumber;  // set the users phone number (comes from the request)
+    user.email        = req.body.email;  // set the users phone number (comes from the request)
     user.password     = req.body.password;  // set the users password (comes from the request)
 
 
@@ -117,7 +114,7 @@ var userCreate = function(req, res) {
         }
 
         // return a message
-        res.json({ message: "Let's get fishin'!" });
+        res.json({ message: "Signed up!" });
       });
 
 };
@@ -156,7 +153,7 @@ var userUpdate = function(req, res) {
 
         // set the new user information if it exists in the request
         if (req.body.name)        user.name        = req.body.name;
-        if (req.body.phoneNumber) user.phoneNumber = req.body.phoneNumber;
+        if (req.body.email) user.email = req.body.email;
         if (req.body.password)    user.password    = req.body.password;
 
         // save the user

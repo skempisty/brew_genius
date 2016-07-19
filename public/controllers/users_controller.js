@@ -23,7 +23,7 @@
           console.log(vm.message);
         });
 
-        $state.go('homePage');
+        $state.go('home');
     };
   };
 })();
