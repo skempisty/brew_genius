@@ -1,15 +1,8 @@
 var express = require('express'),
     router = express.Router();
 
-// Require fishes controller
 var BeerCtrl = require('../controllers/beer'),
     UsersCtrl  = require('../controllers/users');
-
-
-// GET CURRENT USER - WE'RE DOING THIS IN THE BROWSER THOUGH!
-// apiRouter.get('/me', function(req, res) {
-//   res.send(req.decoded);
-// });
 
 //||||||||||||||||||||||||||--
 // USERS CRUD SERVICES
@@ -25,6 +18,8 @@ router.delete('/users/:id',  UsersCtrl.tokenVerify, UsersCtrl.userDelete);
 // BEER CRUD SERVICES
 //||||||||||||||||||||||||||--
 router.post('/beerSearch', BeerCtrl.beerIndex);
+router.post('/createBeer', BeerCtrl.createBeer);
 router.get('/beers', BeerCtrl.userBeers);
+router.delete('/deleteBeer', BeerCtrl.deleteBeer);
 
 module.exports = router;

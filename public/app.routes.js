@@ -18,7 +18,7 @@
       .state("brewSearch", {
         url: "/findBrews",
         templateUrl:  "/templates/brewSearch.html",
-        controller: "MainController",
+        controller: "SearchController",
         controllerAs: "vm"
       })
       .state("register", {

@@ -19,7 +19,7 @@
       <td>{{beer.style.name || 'N/A'}}</td>
       <td>{{beer.abv || 'N/A'}}</td>
     </tr>
-    <tr class="animate-show" ng-repeat-end="" ng-show="beer.detail" ng-click="beer.detail=!beer.detail">
+    <tr class="animate-show" ng-repeat-end="" ng-show="beer.detail">
       <td class="dropdown-td" colspan="3">
         <div class="row dropdown-div">
           <div class="col s3 label">
@@ -30,8 +30,8 @@
               IBU: {{beer.ibu || 'N/A'}}
             </div>
             <div class='description'>
-
-            {{beer.description}}
+              {{beer.description}}
+              <button ng-show="vm.beerCheck(beer.id)" ng-click="vm.createBeer(beer)">Save Brew</button>
             </div>
           </div>
           <div class="col s1">
