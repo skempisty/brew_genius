@@ -23,8 +23,12 @@
         data: {query: query}
       })
       .then(function(response) {
-        vm.beerArr = response.data;
-        console.log(vm.beerArr);
+        if (response.data) {
+          vm.beerArr = response.data;
+        } else {
+          vm.beerArr = [{name: "No Results Found <(-.-<)"}];
+          console.log(vm.beerArr);
+        }
       }, function(err) {
         console.log(err);
       });

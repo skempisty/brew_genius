@@ -14,13 +14,8 @@ function beerIndex(req, res, next) {
   });
 }
 
-function beerShow(req, res, next) {
-  var name = req.body.name;
-
-  brewdb.beer.find({ name:`${name}` }, function(err, data) {
-    if(err) console.log(err);
-    res.json(data);
-  });
+function userBeers(req, res, next) {
+  res.json([{}, {}]);
 }
 
 

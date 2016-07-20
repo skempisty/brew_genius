@@ -1,8 +1,9 @@
+<link rel="stylesheet" href="../assets/css/search.css">
+
 <h1>Find Brews</h1>
 
-
-<input type="text" ng-model='vm.beerName'>
-<button ng-click='vm.searchBeer(vm.beerName)'>Beer Search Test</button>
+<input type="text" placeholder="Beer Name" ng-model='vm.beerName'>
+<button class="waves-effect waves-light btn brown" ng-click='vm.searchBeer(vm.beerName)'>Beer Search Test</button>
 
  <table class='highlight'>
   <thead>
@@ -18,8 +19,25 @@
       <td>{{beer.style.name || 'N/A'}}</td>
       <td>{{beer.abv || 'N/A'}}</td>
     </tr>
-    <tr class="animate-show" ng-repeat-end="" ng-show="beer.detail" style="background: #ffab00">
-      <td colspan="3"><img src="{{beer.labels.medium}}" alt="N/A"></td>
+    <tr class="animate-show" ng-repeat-end="" ng-show="beer.detail" ng-click="beer.detail=!beer.detail">
+      <td class="dropdown-td" colspan="3">
+        <div class="row dropdown-div">
+          <div class="col s3 label">
+            <img src="{{beer.labels.medium}}" alt="No Label Available">
+          </div>
+          <div class="col s8">
+            <div class='info'>
+              IBU: {{beer.ibu || 'N/A'}}
+            </div>
+            <div class='description'>
+
+            {{beer.description}}
+            </div>
+          </div>
+          <div class="col s1">
+          </div>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>

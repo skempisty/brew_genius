@@ -37,8 +37,6 @@ var userAuth = function (req, res, next) {
             expiresInMinutes: 43200 // expires in 30 days
           });
 
-console.log(token)
-
           // return the information including token as JSON
           res.json({
             success: true,
@@ -113,8 +111,17 @@ var userCreate = function(req, res) {
             return res.json(err);
         }
 
-        // return a message
-        res.json({ message: "Signed up!" });
+        var token = jwt.sign(user, superSecret, {
+          expiresInMinutes: 43200 // expires in 30 days
+        });
+
+        // return the information including token as JSON
+        res.json({
+          success: true,
+          message: 'Signup Successful!',
+          token: token,
+          user: user
+        });
       });
 
 };

@@ -42,7 +42,7 @@
       authToken.setToken();
 
       // return to homepage
-      $state.go('homePage');
+      $state.go('home');
     };
 
     // check if a user is logged in
@@ -59,7 +59,6 @@
       var token = authToken.getToken().split('.')[1];
       var user = JSON.parse($window.atob(token));
       userDataService.user = user;
-      console.log(userDataService);
       return user;
     };
 

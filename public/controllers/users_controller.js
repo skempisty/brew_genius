@@ -2,9 +2,9 @@
   angular.module('brewApp')
          .controller('UsersController', UsersController);
 
-  UsersController.$inject = ['$state', 'authService', 'userDataService', '$log'];
+  UsersController.$inject = ['$state', 'authService', 'authToken', 'userDataService', '$log'];
 
-  function UsersController($state, authService, userDataService, $log) {
+  function UsersController($state, authService, authToken, userDataService, $log) {
     var vm = this;
 
     vm.currentUser = userDataService.user;
@@ -18,9 +18,8 @@
       // use the create function in the userService
       userDataService.create(vm.userData)
         .success(function(data) {
-          vm.userData = {};
-          vm.message = data.message;
-          console.log(vm.message);
+          authToken.setToken(data.token);
+          userDataService.user = data.user;
         });
 
         $state.go('home');

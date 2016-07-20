@@ -32,6 +32,12 @@
         templateUrl: "/templates/login.html",
         controller: "LoginController",
         controllerAs: "vm"
+      })
+      .state("myBrews", {
+        url: "/brews",
+        templateUrl: "/templates/myBrews.html",
+        controller: "BrewsController",
+        controllerAs: "vm"
       });
 
     $urlRouterProvider.otherwise("/");

@@ -22,14 +22,9 @@ router.put('/users/:id',     UsersCtrl.tokenVerify, UsersCtrl.userUpdate);
 router.delete('/users/:id',  UsersCtrl.tokenVerify, UsersCtrl.userDelete);
 
 //||||||||||||||||||||||||||--
-// FISHES CRUD SERVICES
+// BEER CRUD SERVICES
 //||||||||||||||||||||||||||--
-router.get('/fishes/:id',    UsersCtrl.tokenVerify, BeerCtrl.fishShow);
-router.get('/fishes',        UsersCtrl.tokenVerify, BeerCtrl.fishIndex);
-router.post('/fishes',       UsersCtrl.tokenVerify, BeerCtrl.fishCreate);
-router.put('/fishes/:id',    UsersCtrl.tokenVerify, BeerCtrl.fishUpdate);
-router.delete('/fishes/:id', UsersCtrl.tokenVerify, BeerCtrl.fishDelete);
 router.post('/beerSearch', BeerCtrl.beerIndex);
-router.post('/beerShow', BeerCtrl.beerShow);
+router.get('/beers', BeerCtrl.userBeers);
 
 module.exports = router;
