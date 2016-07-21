@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="/assets/css/main.css">
 
   <!-- jQuery (Materialize is a dependant) -->
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <!-- Angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <!-- Angular UI-Router -->
@@ -21,7 +21,7 @@
 
 </head>
 
-<body ng-controller="MainController as vm" ng-cloak>
+<body ng-controller="MainController as main" ng-cloak>
   <header>
     <div class="navbar-fixed">
       <nav>
@@ -29,11 +29,12 @@
           <a ui-sref="home" class="brand-logo"><img src="/assets/img/beer_logo.png" alt=""></a>
           <a class='logo-name' ui-sref="home">Brew Genius</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li ng-show="vm.isLoggedIn()"><a ui-sref='myBrews'>My Brews</a></li>
+            <li ng-show="main.isLoggedIn()"><a href="#">{{main.userDataService.user.name}}</a></li>
+            <li ng-show="main.isLoggedIn()"><a ui-sref='myBrews'>My Brews</a></li>
             <li><a ui-sref='brewSearch'>Find Brews</a></li>
-            <li ng-hide="vm.isLoggedIn()"><a ui-sref="register">Sign Up</a></li>
-            <li ng-hide="vm.isLoggedIn()"><a ui-sref="login">Login</a></li>
-            <li ng-show="vm.isLoggedIn()"><a href="" ng-click="vm.logout()">Logout</a></li>
+            <li ng-hide="main.isLoggedIn()"><a ui-sref="register">Sign Up</a></li>
+            <li ng-hide="main.isLoggedIn()"><a ui-sref="login">Login</a></li>
+            <li ng-show="main.isLoggedIn()"><a href="" ng-click="main.logout()">Logout</a></li>
           </ul>
         </div>
       </nav>

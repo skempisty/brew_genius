@@ -15,6 +15,8 @@
   //||||||||||||||||||||||||||--
   function authService($http, $q, authToken, userDataService, $state, $window) {
 
+    // userDataService.user._doc = {name: '', id: ''};
+
     // create auth factory object
     var authFactory = {};
 

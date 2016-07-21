@@ -19,7 +19,7 @@ router.delete('/users/:id',  UsersCtrl.tokenVerify, UsersCtrl.userDelete);
 //||||||||||||||||||||||||||--
 router.post('/beerSearch', BeerCtrl.beerIndex);
 router.post('/createBeer', BeerCtrl.createBeer);
-router.get('/beers', BeerCtrl.userBeers);
+router.get('/beers/:id', BeerCtrl.userBeers);
 router.delete('/deleteBeer', BeerCtrl.deleteBeer);
 
 module.exports = router;

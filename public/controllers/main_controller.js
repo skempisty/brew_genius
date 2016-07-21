@@ -10,9 +10,12 @@
   function MainController($state, userDataService, $log, authService, $http) {
     var vm = this;
 
-    vm.userService = userDataService;
     vm.logout      = authService.logout;
     vm.isLoggedIn  = authService.isLoggedIn;
-    vm.$state = $state;
+    vm.$state      = $state;
+    vm.userDataService = userDataService;
+
+    // console.log("MAIN CTRL USER OBJ", vm.userDataService.user.name);
+
   }
 })();

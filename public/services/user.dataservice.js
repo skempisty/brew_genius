@@ -24,6 +24,7 @@
 
     // create a user
     userFactory.create = function(userData) {
+      console.log(userData);
       return $http.post('/api/users/', userData);
     };
 

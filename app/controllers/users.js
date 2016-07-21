@@ -33,7 +33,12 @@ var userAuth = function (req, res, next) {
           // create a token
 
 
-          var token = jwt.sign(user, superSecret, {
+          var token = jwt.sign({
+              name: user.name,
+              email: user.email,
+              id: user._id
+            },
+            superSecret, {
             expiresInMinutes: 43200 // expires in 30 days
           });
 
@@ -42,7 +47,11 @@ var userAuth = function (req, res, next) {
             success: true,
             message: 'Login Successful!',
             token: token,
-            user: user
+            user: {
+              name: user.name,
+              email: user.email,
+              id: user._id
+            }
           });
         }
 
@@ -74,8 +83,7 @@ var tokenVerify = function(req, res, next) {
       });
       } else {
         // if everything is good, save to request for use in other routes
-        req.user = decoded._doc;
-console.log(req.user);
+        req.user = decoded;
         next(); // make sure we go to the next routes and don't stop here
       }
     });
@@ -101,17 +109,24 @@ var userCreate = function(req, res) {
     user.email        = req.body.email;  // set the users phone number (comes from the request)
     user.password     = req.body.password;  // set the users password (comes from the request)
 
+    console.log(user);
 
     user.save(function(err) {
         if (err) {
           // duplicate entry
+          console.log(err);
           if (err.code == 11000)
             return res.json({ success: false, message: 'A user with those digits already exists! '});
           else
             return res.json(err);
         }
-
-        var token = jwt.sign(user, superSecret, {
+        console.log('no error');
+        var token = jwt.sign({
+            name: user.name,
+            email: user.email,
+            id: user._id
+          },
+          superSecret, {
           expiresInMinutes: 43200 // expires in 30 days
         });
 

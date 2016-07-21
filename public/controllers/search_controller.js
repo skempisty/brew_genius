@@ -5,18 +5,20 @@
       .module("brewApp")
       .controller("SearchController", SearchController);
 
-  SearchController.$inject = ["$http"];
+  SearchController.$inject = ["$http", "userDataService"];
 
-  function SearchController($http) {
+  function SearchController($http, userDataService) {
     var vm = this;
-
     var myBeerIdList = [];
+
+    vm.userDataService = userDataService;
+    var userId = vm.userDataService.user.id;
 
 // Populates an array (myBeerIdList) with the Ids of saved beers
 // used to disallow saving duplicate beers through ng-show
     $http({
-      url: '/api/beers',
-      method: 'GET',
+      url: `/api/beers/${userId}`,
+      method: 'GET'
     })
     .then(function(response) {
       if(response.data) {
@@ -53,7 +55,7 @@
       $http({
         url: '/api/createBeer',
         method: 'POST',
-        data: {beer: beer}
+        data: { beer: beer, userId: userId }
       })
       .then(function(response) {
         myBeerIdList.push(response.data.id);

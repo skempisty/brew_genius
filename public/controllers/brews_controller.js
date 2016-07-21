@@ -9,9 +9,12 @@
 
   function BrewsController($http, userDataService) {
     var vm = this;
+    vm.userDataService = userDataService;
+
+    var userId = vm.userDataService.user.id;
 
     $http({
-      url: '/api/beers',
+      url: `/api/beers/${userId}`,
       method: 'GET'
     })
     .then(function(response) {

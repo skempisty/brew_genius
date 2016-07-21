@@ -11,9 +11,7 @@
     $stateProvider
       .state("home", {
         url: "/",
-        templateUrl: "/templates/home.html",
-        controller: "MainController",
-        controllerAs: "vm"
+        templateUrl: "/templates/home.html"
       })
       .state("brewSearch", {
         url: "/findBrews",
@@ -34,7 +32,7 @@
         controllerAs: "vm"
       })
       .state("myBrews", {
-        url: "/brews",
+        url: "/brews/:id",
         templateUrl: "/templates/myBrews.html",
         controller: "BrewsController",
         controllerAs: "vm"

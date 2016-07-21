@@ -11,7 +11,7 @@ var UserSchema   = new Schema({
   email: {
                  type: String,
                  required: true,
-                 index: { unique: true }
+                 unique: true
   },
   password:    { type: String, required: true }
 });
@@ -50,7 +50,7 @@ console.log(user)
 
 // Access user's fishes
 UserSchema.methods.fishes = function(callback) {
-  Fish.find({user: this._id}, function(err, fishes) {
+  mongoose.model('Fish').find({user: this._id}, function(err, fishes) {
     callback(err, fishes);
   });
 };

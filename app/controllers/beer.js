@@ -13,7 +13,9 @@ function beerIndex(req, res, next) {
 }
 
 function userBeers(req, res, next) {
-  Beer.find({}, function(err, beers) {
+  var userId = req.params.id;
+
+  Beer.find({user: userId}, function(err, beers) {
     if(err) res.send(err);
     res.json(beers);
   });
@@ -31,6 +33,7 @@ function createBeer(req, res, next) {
     beer.labelUrl   = req.body.beer.labels.medium;
   }
   beer.description  = req.body.beer.description;
+  beer.user         = req.body.userId;
 
   beer.save(function(err, savedBeer) {
     if (err) {
