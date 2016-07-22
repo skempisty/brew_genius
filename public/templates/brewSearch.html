@@ -6,15 +6,15 @@
 <button class="waves-effect waves-light btn brown" ng-click='vm.searchBeer(vm.beerName)'>Beer Search Test</button>
 
  <table class='highlight'>
-  <thead>
+  <thead class='table-header'>
     <tr>
         <th data-field="id">Name</th>
         <th data-field="name">Style</th>
         <th data-field="price">ABV</th>
     </tr>
   </thead>
-  <tbody>
-    <tr ng-repeat-start='beer in vm.beerArr' ng-if="beer.style.name" ng-click="beer.detail=!beer.detail">
+  <tbody class='table-element'>
+    <tr ng-repeat-start='beer in vm.beerArr' ng-if="beer.style.name && beer.abv" ng-click="beer.detail=!beer.detail">
       <td>{{beer.name}}</td>
       <td>{{beer.style.name || 'N/A'}}</td>
       <td>{{beer.abv || 'N/A'}}</td>

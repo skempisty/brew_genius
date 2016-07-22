@@ -1,3 +1,0 @@
-sticky footer
-getting username breaks app when no user is logged in
-errors when loading home page and search page

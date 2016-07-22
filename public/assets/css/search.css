@@ -1,3 +1,14 @@
+@font-face {
+  font-family: chalkHeader;
+  src: url(../fonts/KGSecondChancesSketch.ttf);
+}
+
+@font-face {
+  font-family: chalkList;
+  src: url(../fonts/KGTenThousandReasons.ttf);
+}
+
+
 .dropdown-td {
   padding:0;
 }
@@ -22,6 +33,13 @@
   overflow: wrap;
 }
 
+.table-header {
+  font-family: chalkHeader;
+  font-size: 200%;
+}
 
+.table-element {
+  font-family: chalkList;
+}
 
 
