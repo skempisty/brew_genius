@@ -1,83 +1,62 @@
 
-<img src="public/assets/img/home_screenshot.png" align="left" style="background:black; height:100px "/>
-<img src="/public/assets/img/beer_logo.png"  style="background:black; height: 35px; top:30px; position:relative" />
-
-<br>
-<br>
-
 # Brew Genius v0.9
-##(https://github.com/skempisty/brew_genius)
 ### Author: Stephen Kempisty
+<br>
+
+<img src="public/assets/img/home_screenshot.png" align="left" style="background:black; height:100px; border: 3px solid black"/>
+
+<br>
+
 
 ==========
 
 ##Introduction
 
-Welcome to Rocket League 2D! Your favorite rocket powered battle car socCAR game in top down form! Find the full game online for free at:
+Welcome to Brew Genius! Sign up to start looking for beers you might like to try through our "Find Brews" feature all powered by BreweryDB! BreweryDB is publicly available crowdsourced database of beer! Build up a fridge full of wish list beer that you can discover here on Brew Genius!
 
-<a>http://skempisty.github.io/rocket_league_2d/</a>
-
-Development is ongoing, and many more features such as curved arena corners, boost pickups, multiple car models, and player registration/rankings are coming soon!
-
-##Controls
-
-####Player 1 (Orange):
-- W = Accelerate
-- S = Brake/Reverse
-- A = Turn Left
-- D = Turn Right
-
-####Player 2 (Blue):
-- Up Arrow = Accelerate
-- Down Arrow = Brake/Reverse
-- Left Arrow = Turn Left
-- Right Arrow = Turn Right
-
-##Game Flow
-
-<img src="assets/rocket_league_2d_ss.png" />
-
-Begin playing Rocket League 2D by pressing the start button after the game loads. 
-
-The game timer starts at 5:00. Try to score as many goals against your opponent as you can in that time to win the game! Simple and fun!
-
+Development is ongoing, and many more features such as a better search function, further
+web design, and social media connectivity are soon to come!
  
 ##Technologies
 
-Rocket League 2D runs completely in the browser with no installation required. Technologies used in production include:
+Brew Genius is developed using the MEAN stack which includes MongoDB, Express,
+Angular, and Node. No installation is required to use Brew Genius.
+
 &nbsp;
 
 - HTML
 - CSS 
 - Javascript
 - jQuery
-- Canvas
+- Materialize
+- MongoDB
+- Express
+- Angular
+- Node
+
+#### API
+- BreweryDB 
 
 ##Design
 
-The general design approach taken for Rocket League 2D (RL2d) started with a focus on the minimum viable product (MVP). Coding basic features such as movement, collision detection, basic physics, scoring, and a timer was the first goal. 
+The general design approach around Brew Genius was to demonstrate the use of Angular in a MEAN app. An attempt was made to incorporate as many features of Angular as possible that would be 
+feasible to complete in a one week sprint. 
 
-Once a MVP had been completed, some advanced features such as sound effects, car models, and refined collision physics could be completed.
+While seemingly simple, Brew Genius requires careful interaction between frontend and backend aspects of the code base. Ajax requests made in the front end communicate with the backend which then makes requests to BreweryDB, then returns the results to the frontend for delivery to the user. Signing up and logging in require an issuance of a JSON web token to local storage once user credentials are verified which keeps the site informed of the user's logged in status.
 
-RL2d development emphasized throwbacks to the original game on Ps4/Xbox One/PC. Sound effects come straight from Rocket League's sound files, and the aesthetic design was based on the aesthetics of the original Rocket League.    
+<img src="public/assets/img/search_screenshot.png" align="left" style="background:black; height:100px; border: 3px solid black"/>
 
 ##Get Started
 
-No installation is required for RL2d! Simply navigate to the following link and play away!
+<a href="https://fierce-journey-62903.herokuapp.com/">Visit Brew Genius!</a>
 
-<a>http://skempisty.github.io/rocket_league_2d/</a>
-
-If you would like to contribute to further development of RL2d, feel free to fork this repository. Permission to snoop around in the code is given whole-heartedly!
+If you would like to contribute to further development of Brew Genius, feel free to fork this repository. Permission to snoop around in the code is given whole-heartedly!
 
 
 ##Next Steps
-There are many exciting features planned that unfortunately did not make it into the release version of RL2d. Please check back for future versions. New features such as the following are coming soon!
+There are many exciting features planned that unfortunately did not make it into the release version of Brew Genius. Please check back for future versions. New features such as the following are coming soon!
 
-- Car to Car collisions
-- Curved arena corners
-- Ball graphic and rolling animation
-- Boost pickups and usage
-- Improved goal interaction/animation
-- Improved/varied car models
-- Player registration
-- Player rankings
+- More comprehensive search feature
+- Checkoff your fridge items!
+- A fully designed fridge page
+- Fleshing out of the home page
