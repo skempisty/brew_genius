@@ -55,6 +55,7 @@ button {
   font-size: 200%;
 }
 
+
 .table-element {
   font-family: chalkList;
 }
@@ -73,4 +74,12 @@ table tbody tr:hover td {
   background-color: #ad4713;
 }
 
+table thead tr th:hover {
+  cursor:pointer;
+  color: #cc761e;
+}
+
+table tbody tr td:hover {
+  cursor:pointer;
+}
 
