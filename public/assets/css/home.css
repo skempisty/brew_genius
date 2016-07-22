@@ -1,12 +1,87 @@
+
+
+@font-face {
+  font-family: chalkList;
+  src: url(../fonts/KGTenThousandReasons.ttf);
+}
+
 .parallax-container {
   height: 500px;
 }
 
 .text-box {
-  background: rgba(201, 137, 74, 0.9);
+  background: rgba(185, 90, 23, 0.9);
 
 }
 
+
 .content {
   height: 500px;
+
+}
+
+.content-box {
+  border-radius: 50px;
+}
+
+#content1 {
+  background: url("../img/wood_background.jpg");
+  border-bottom: black 15px solid;
+}
+
+#content2 {
+  background: url("../img/metal_microbrews.jpg");
+  border-top: black 15px solid;
+}
+
+#content-box1 {
+  background: rgba(0, 0, 0, 0.8);
+  width:40%;
+  height:60%;
+  margin-left: 100px;
+  font-size: 120%;
+  font-family: chalkList;
+  color: white;
+}
+
+#content-box2 {
+  width:60%;
+  height: 60%;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-family: steelWorks;
+  color: white;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+#content-box1 div {
+  padding: 25px;
+}
+
+#content-box2 h1 {
+  font-size: 700%;
+}
+
+#content-box2 img {
+  width: 45%;
+  float:right;
+  margin: 0 auto;
+}
+
+@media (max-width: 1097px) {
+  #content-box1 {
+    display: none;
+  }
+}
+
+@media (max-width: 753px) {
+  #content-box2 h1 {
+    font-size: 400%;
+  }
+}
+
+@media (max-width: 457px) {
+  #content-box2 h1 {
+    font-size: 300%;
+  }
 }

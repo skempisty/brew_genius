@@ -11,6 +11,9 @@
     var vm = this;
     var myBeerIdList = [];
 
+    vm.orderByField = 'name';
+    vm.reverseSort = false;
+
     vm.userDataService = userDataService;
     var userId = vm.userDataService.user.id;
 
@@ -42,6 +45,14 @@
       .then(function(response) {
         if (response.data) {
           vm.beerArr = response.data;
+          vm.beerArr.forEach(function(beer) {
+            beer.abv = parseInt(beer.abv,10);
+            if(beer.labels) {
+              beer.pic = "Yes";
+            } else {
+              beer.pic = "No";
+            }
+          });
         } else {
           vm.beerArr = [{name: "No Results Found <(-.-<)"}];
         }

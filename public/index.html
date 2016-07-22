@@ -25,12 +25,12 @@
   <header>
     <div class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper #ffab00 amber accent-4">
+        <div class="nav-wrapper">
           <a ui-sref="home" class="brand-logo"><img src="/assets/img/beer_logo.png" alt=""></a>
           <a class='logo-name' ui-sref="home">Brew Genius</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li ng-show="main.isLoggedIn()"><a href="#">{{main.userDataService.user.name}}</a></li>
-            <li ng-show="main.isLoggedIn()"><a ui-sref='myBrews'>My Brews</a></li>
+            <li id="username" ng-show="main.isLoggedIn()">User - {{main.userDataService.user.name}}</li>
+            <li ng-show="main.isLoggedIn()"><a ui-sref='myBrews'>My Fridge</a></li>
             <li><a ui-sref='brewSearch'>Find Brews</a></li>
             <li ng-hide="main.isLoggedIn()"><a ui-sref="register">Sign Up</a></li>
             <li ng-hide="main.isLoggedIn()"><a ui-sref="login">Login</a></li>

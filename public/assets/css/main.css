@@ -21,6 +21,7 @@ footer > div {
 .nav-wrapper {
   padding: 0 10px 0 10px;
   font-size: 200%;
+  background: linear-gradient(to right, #ac4613, #e49b26) ;
 }
 
 .nav-wrapper .brand-logo img {
@@ -33,6 +34,7 @@ footer > div {
   position: relative;
   left: 50px;
   font-family: steelWorks;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .animate-show {
@@ -53,4 +55,13 @@ footer > div {
   line-height:0;
   opacity:0;
   padding:0 10px;
+}
+
+#username {
+  position: relative;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 60%;
+  top: 4px;
+  left: -10px;
 }

@@ -1,23 +1,26 @@
 <link rel="stylesheet" href="../assets/css/search.css">
 
-<h1>Find Brews</h1>
-
-<input type="text" placeholder="Beer Name" ng-model='vm.beerName'>
-<button class="waves-effect waves-light btn brown" ng-click='vm.searchBeer(vm.beerName)'>Beer Search Test</button>
-
- <table class='highlight'>
+<div class="inputs">
+  <form>
+    <input type="text" placeholder="Beer Name" ng-model='vm.beerName'>
+    <button class="waves-effect waves-light btn brown" ng-click='vm.searchBeer(vm.beerName)'>Find Brews</button>
+  </form>
+</div>
+<table class='highlight'>
   <thead class='table-header'>
     <tr>
-        <th data-field="id">Name</th>
-        <th data-field="name">Style</th>
-        <th data-field="price">ABV</th>
+      <th ng-click="vm.orderByField='name'; vm.reverseSort=!vm.reverseSort" data-field="name">Name</th>
+      <th ng-click="vm.orderByField='pic'; vm.reverseSort=!vm.reverseSort" data-field="pic">Label?</th>
+      <th ng-click="vm.orderByField='style.name'; vm.reverseSort=!vm.reverseSort" data-field="style">Style</th>
+      <th ng-click="vm.orderByField='abv'; vm.reverseSort=!vm.reverseSort" data-field="abv">ABV</th>
     </tr>
   </thead>
   <tbody class='table-element'>
-    <tr ng-repeat-start='beer in vm.beerArr' ng-if="beer.style.name && beer.abv" ng-click="beer.detail=!beer.detail">
+    <tr ng-repeat-start="beer in vm.beerArr | orderBy:vm.orderByField:vm.reverseSort" ng-if="beer.style.name && beer.abv" ng-click="beer.detail=!beer.detail">
       <td>{{beer.name}}</td>
+      <td>{{beer.pic}}</td>
       <td>{{beer.style.name || 'N/A'}}</td>
-      <td>{{beer.abv || 'N/A'}}</td>
+      <td>{{beer.abv || 'N/A' | number}}</td>
     </tr>
     <tr class="animate-show" ng-repeat-end="" ng-show="beer.detail">
       <td class="dropdown-td" colspan="3">
@@ -41,3 +44,4 @@
     </tr>
   </tbody>
 </table>
+

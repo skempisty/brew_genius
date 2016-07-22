@@ -1,13 +1,30 @@
 @font-face {
   font-family: chalkHeader;
-  src: url(../fonts/KGSecondChancesSketch.ttf);
+  src: url('../fonts/KGSecondChancesSketch.ttf');
 }
 
 @font-face {
   font-family: chalkList;
-  src: url(../fonts/KGTenThousandReasons.ttf);
+  src: url('../fonts/KGTenThousandReasons.ttf');
 }
 
+main {
+  background: url('../img/wood_background.jpg');
+}
+
+button {
+  font-family: chalkList;
+}
+
+.inputs {
+  width: 60%;
+  margin: 10px auto;
+  color: white;
+  background: rgba(0,0,0,0.8);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 2px #888888;
+}
 
 .dropdown-td {
   padding:0;
@@ -40,6 +57,20 @@
 
 .table-element {
   font-family: chalkList;
+}
+
+table {
+  background: rgba(0,0,0,0.8);
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 20px;
+  color: white;
+  border: 2px black solid 20px;
+  box-shadow: 5px 5px 2px #888888;
+}
+
+table tbody tr:hover td {
+  background-color: #ad4713;
 }
 
 
