@@ -7,7 +7,6 @@ var express      = require('express'),
 
 // load the env vars
 require('dotenv').load();
-require('dotenv').config();
 
 var apiRoutes = require('./app/routes/api_routes');
 
