@@ -1,6 +1,7 @@
 
 # Brew Genius v0.9
 ### Author: Stephen Kempisty
+<a href="https://fierce-journey-62903.herokuapp.com/">Visit Brew Genius on Heroku!</a>
 <br>
 
 <img src="public/assets/img/home_screenshot.png" align="left" style="background:black; height:100px; border: 3px solid black"/>
@@ -9,7 +10,7 @@
 
 
 ==========
-
+<br>
 ##Introduction
 
 Welcome to Brew Genius! Sign up to start looking for beers you might like to try through our "Find Brews" feature all powered by BreweryDB! BreweryDB is publicly available crowdsourced database of beer! Build up a fridge full of wish list beer that you can discover here on Brew Genius!
@@ -21,8 +22,6 @@ web design, and social media connectivity are soon to come!
 
 Brew Genius is developed using the MEAN stack which includes MongoDB, Express,
 Angular, and Node. No installation is required to use Brew Genius.
-
-&nbsp;
 
 - HTML
 - CSS 
@@ -46,6 +45,7 @@ While seemingly simple, Brew Genius requires careful interaction between fronten
 
 <img src="public/assets/img/search_screenshot.png" align="left" style="background:black; height:100px; border: 3px solid black"/>
 
+<br>
 ##Get Started
 
 <a href="https://fierce-journey-62903.herokuapp.com/">Visit Brew Genius!</a>
